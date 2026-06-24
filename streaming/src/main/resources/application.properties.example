@@ -1,0 +1,37 @@
+spring.application.name=streaming
+
+# Database
+spring.datasource.url=jdbc:postgresql://YOUR_SUPABASE_URL:6543/postgres?prepareThreshold=0
+spring.datasource.username=postgres.YOUR_PROJECT_REF
+spring.datasource.password=YOUR_PASSWORD
+
+# JPA
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.open-in-view=false
+
+# HikariCP
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+spring.datasource.hikari.max-lifetime=1800000
+spring.datasource.hikari.keepalive-time=300000
+
+# JWT
+jwt.secret=YOUR_SECRET_KEY_MIN_256_BITS
+jwt.expiration=86400000
+
+# Cloudflare R2
+r2.access-key=YOUR_ACCESS_KEY
+r2.secret-key=YOUR_SECRET_KEY
+r2.bucket=YOUR_BUCKET_NAME
+r2.account-id=YOUR_ACCOUNT_ID
+r2.endpoint=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com
+r2.public-url=https://YOUR_PUBLIC_URL.r2.dev
+
+# File upload
+spring.servlet.multipart.max-file-size=500MB
+spring.servlet.multipart.max-request-size=500MB
+
+# FFmpeg
+ffmpeg.path=YOUR_FFMPEG_PATH
+ffprobe.path=YOUR_FFPROBE_PATH
