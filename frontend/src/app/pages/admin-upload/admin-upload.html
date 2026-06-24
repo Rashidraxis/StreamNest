@@ -1,0 +1,57 @@
+<div class="upload-container">
+  <div class="upload-header">
+    <button (click)="goToVideos()" class="back-btn">← Back to Videos</button>
+    <h1>Upload Video</h1>
+  </div>
+
+  <div class="upload-card">
+    @if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+
+    @if (success()) {
+      <div class="success">{{ success() }}</div>
+    }
+
+    <div class="form-group">
+      <label>Title *</label>
+      <input
+        type="text"
+        placeholder="Enter video title"
+        [(ngModel)]="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        placeholder="Enter video description"
+        [(ngModel)]="description"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Video File *</label>
+      <div class="file-input-wrapper">
+        <input
+          type="file"
+          accept="video/*"
+          (change)="onFileSelected($event)"
+          id="fileInput"
+        />
+        <label for="fileInput" class="file-label">
+          @if (selectedFile) {
+            ✅ {{ selectedFile.name }}
+          } @else {
+            📁 Choose video file
+          }
+        </label>
+      </div>
+    </div>
+
+    <button (click)="upload()" [disabled]="loading()">
+      {{ loading() ? 'Uploading...' : 'Upload Video' }}
+    </button>
+  </div>
+</div>

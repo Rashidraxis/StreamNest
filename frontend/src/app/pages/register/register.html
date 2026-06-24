@@ -1,0 +1,40 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>🎬 StreamNest</h1>
+    <h2>Create Account</h2>
+
+    @if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+
+    <input
+      type="text"
+      placeholder="Full Name"
+      [(ngModel)]="name"
+    />
+
+    <input
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      [(ngModel)]="confirmPassword"
+    />
+
+    <button (click)="register()" [disabled]="loading()">
+      {{ loading() ? 'Creating account...' : 'Register' }}
+    </button>
+
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>
