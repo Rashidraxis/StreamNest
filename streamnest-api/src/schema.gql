@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthResponse {
+  name: String!
+  role: String!
+  token: String!
+}
+
+input CreateVideoInput {
+  description: String
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  deleteVideo(id: Int!): Boolean!
+  login(input: LoginInput!): AuthResponse!
+  register(input: RegisterInput!): AuthResponse!
+  uploadVideo(fileBase64: String!, filename: String!, input: CreateVideoInput!): Video!
+}
+
+type Query {
+  health: String!
+  searchVideos(query: String!): [Video!]!
+  video(id: Int!): Video
+  videos: [Video!]!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type Video {
+  createdAt: DateTime
+  description: String
+  duration: Int
+  id: Int!
+  status: String!
+  thumbnailUrl: String
+  title: String!
+  videoUrl: String
+}
